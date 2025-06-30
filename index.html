@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-On Large Language Models - Flashcards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flashcard-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            color: #333;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-front h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .card-front .question {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .card-back .answer {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .card-back h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(145deg, #95a5a6, #7f8c8d);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(145deg, #27ae60, #229954);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .progress {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .category-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(52, 152, 219, 0.8);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .flashcard {
+                height: 350px;
+            }
+            
+            .card-face {
+                padding: 20px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 LLM Flashcards</h1>
+            <p>Hands-On Large Language Models Study Cards</p>
+        </div>
+
+        <div class="progress">
+            <span id="progress-text">Card 1 of 25</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard">
+                <div class="card-face card-front">
+                    <div class="category-tag" id="category-tag">Fundamentals</div>
+                    <h2>Question</h2>
+                    <div class="question" id="question">What does LLM stand for and what are the two main types?</div>
+                </div>
+                <div class="card-face card-back">
+                    <h3>Answer</h3>
+                    <div class="answer" id="answer">Large Language Model. The two main types are: <br><br>1. <strong>Encoder-only</strong> (like BERT) - for representation and understanding tasks<br><br>2. <strong>Decoder-only</strong> (like GPT) - for text generation and completion tasks</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-secondary" onclick="previousCard()">← Previous</button>
+            <button class="btn btn-primary" onclick="flipCard()">🔄 Flip Card</button>
+            <button class="btn btn-secondary" onclick="nextCard()">Next →</button>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-success" onclick="shuffleCards()">🎲 Shuffle</button>
+            <button class="btn btn-primary" onclick="resetProgress()">🔄 Reset</button>
+        </div>
+    </div>
+
+    <script>
+        const flashcards = [
+            {
+                category: "Fundamentals",
+                question: "What does LLM stand for and what are the two main types?",
+                answer: "Large Language Model. The two main types are: <br><br>1. <strong>Encoder-only</strong> (like BERT) - for representation and understanding tasks<br><br>2. <strong>Decoder-only</strong> (like GPT) - for text generation and completion tasks"
+            },
+            {
+                category: "Architecture",
+                question: "What is the key innovation of the Transformer architecture?",
+                answer: "<strong>Self-attention mechanism</strong> - allows the model to focus on different parts of the input sequence when processing each token, enabling parallel processing and better long-range dependencies."
+            },
+            {
+                category: "Tokenization",
+                question: "What is tokenization and why is it important?",
+                answer: "Tokenization is the process of converting text into smaller units (tokens) that models can understand. It's crucial because models work with numbers, not raw text. Common methods include BPE and WordPiece."
+            },
+            {
+                category: "Embeddings",
+                question: "What are embeddings and how do they capture semantic meaning?",
+                answer: "Embeddings are dense vector representations of text that capture semantic relationships. Similar words/phrases have similar vectors, enabling mathematical operations on meaning (e.g., 'king' - 'man' + 'woman' ≈ 'queen')."
+            },
+            {
+                category: "Applications",
+                question: "What is semantic search and how does it differ from keyword search?",
+                answer: "Semantic search understands the <strong>meaning</strong> behind queries, not just keywords. It uses dense embeddings to find conceptually similar content, even if exact words don't match. Much more powerful than traditional keyword matching."
+            },
+            {
+                category: "RAG",
+                question: "What does RAG stand for and what problem does it solve?",
+                answer: "<strong>Retrieval-Augmented Generation</strong> - Combines retrieval of relevant documents with text generation. Solves the problem of LLMs having outdated or limited knowledge by providing current, specific information."
+            },
+            {
+                category: "Fine-tuning",
+                question: "What is the difference between pre-training and fine-tuning?",
+                answer: "<strong>Pre-training:</strong> Training on massive general text data to learn language patterns<br><br><strong>Fine-tuning:</strong> Additional training on specific tasks/domains to adapt the model for particular use cases"
+            },
+            {
+                category: "Models",
+                question: "What is BERT optimized for?",
+                answer: "<strong>Text understanding and representation tasks</strong> like classification, named entity recognition, and question answering. It's bidirectional (reads text in both directions) and creates rich embeddings."
+            },
+            {
+                category: "Models",
+                question: "What is GPT optimized for?",
+                answer: "<strong>Text generation and completion</strong>. It's autoregressive (predicts next token) and unidirectional (left-to-right), making it excellent for creative writing, summarization, and conversation."
+            },
+            {
+                category: "Attention",
+                question: "What does the attention mechanism allow transformers to do?",
+                answer: "Attention allows the model to <strong>focus on relevant parts</strong> of the input when processing each token. It creates weighted connections between all positions, enabling better understanding of context and relationships."
+            },
+            {
+                category: "Libraries",
+                question: "What is the Transformers library by Hugging Face?",
+                answer: "A Python library providing easy access to <strong>pre-trained transformer models</strong>. It includes thousands of models for various tasks and languages, with simple APIs for inference and fine-tuning."
+            },
+            {
+                category: "Libraries",
+                question: "What is Sentence-Transformers used for?",
+                answer: "Creating <strong>sentence and document embeddings</strong> for semantic similarity tasks. It's built on top of transformers and optimized for tasks like semantic search, clustering, and similarity comparison."
+            },
+            {
+                category: "Topic Modeling",
+                question: "What is BERTopic and who created it?",
+                answer: "<strong>BERTopic</strong> is a topic modeling technique that uses BERT embeddings for clustering documents and GPT for generating topic labels. Created by <strong>Maarten Grootendorst</strong> (co-author of this book)."
+            },
+            {
+                category: "Applications",
+                question: "Name three practical applications of LLMs covered in the book.",
+                answer: "1. <strong>Text Classification</strong> - sentiment analysis, document categorization<br>2. <strong>Semantic Search</strong> - intelligent document retrieval<br>3. <strong>Text Generation</strong> - copywriting, summarization, creative content"
+            },
+            {
+                category: "Vector DBs",
+                question: "What are vector databases and why are they important for LLMs?",
+                answer: "<strong>Specialized databases for storing and querying high-dimensional vectors</strong> (embeddings). Essential for semantic search, RAG systems, and similarity matching at scale. Examples: Pinecone, Weaviate, Chroma."
+            },
+            {
+                category: "Multimodal",
+                question: "What are multimodal models and give an example?",
+                answer: "Models that can process <strong>multiple types of input</strong> (text, images, audio). Example: <strong>CLIP</strong> - understands both text and images, enabling cross-modal search and understanding."
+            },
+            {
+                category: "Fine-tuning",
+                question: "What is contrastive learning in the context of LLMs?",
+                answer: "A training technique that teaches models to <strong>distinguish between similar and dissimilar examples</strong>. Used to create better embeddings by pulling similar items closer and pushing dissimilar items apart in vector space."
+            },
+            {
+                category: "Techniques",
+                question: "What is in-context learning?",
+                answer: "The ability of LLMs to <strong>learn from examples provided in the prompt</strong> without additional training. You can teach the model new tasks by showing examples in the input, leveraging the model's pre-trained knowledge."
+            },
+            {
+                category: "Search",
+                question: "What is dense retrieval and how does it improve search?",
+                answer: "<strong>Using neural embeddings to represent and search documents</strong> instead of sparse keyword methods. Captures semantic meaning, handles synonyms, and finds conceptually relevant results even without exact keyword matches."
+            },
+            {
+                category: "Search",
+                question: "What is reranking in search systems?",
+                answer: "A <strong>two-stage process</strong>: first retrieve candidate documents with fast methods, then use more sophisticated models to reorder results for better relevance. Balances speed and accuracy."
+            },
+            {
+                category: "Production",
+                question: "What are key considerations when deploying LLMs in production?",
+                answer: "• <strong>Latency</strong> - response time requirements<br>• <strong>Cost</strong> - computational expenses<br>• <strong>Scalability</strong> - handling multiple users<br>• <strong>Model size</strong> - memory constraints<br>• <strong>Accuracy</strong> - task performance"
+            },
+            {
+                category: "Tools",
+                question: "What is LangChain and what problem does it solve?",
+                answer: "A framework for building <strong>LLM-powered applications</strong>. Provides tools for chaining LLM calls, managing prompts, integrating with external data sources, and building complex AI workflows."
+            },
+            {
+                category: "Architecture",
+                question: "What is the difference between encoder-decoder and decoder-only architectures?",
+                answer: "<strong>Encoder-decoder:</strong> Separate encoding and decoding phases (T5, BART)<br><br><strong>Decoder-only:</strong> Single decoder stack that generates text autoregressively (GPT family) - simpler and often more effective for generation"
+            },
+            {
+                category: "Training",
+                question: "What is supervised fine-tuning (SFT)?",
+                answer: "<strong>Training on labeled examples</strong> to teach the model specific tasks or behaviors. Often used to make base language models follow instructions and behave more like helpful assistants."
+            },
+            {
+                category: "Fundamentals",
+                question: "According to the book, what makes this the 'Language AI' era?",
+                answer: "Recent advances in <strong>deep learning and transformer architectures</strong> have given AI startling new language capabilities, enabling systems to write and understand text better than ever before, creating new features, products, and industries."
+            }
+        ];
+
+        let currentCardIndex = 0;
+        let isFlipped = false;
+        let cardOrder = [...Array(flashcards.length).keys()];
+
+        function updateCard() {
+            const card = flashcards[cardOrder[currentCardIndex]];
+            document.getElementById('question').innerHTML = card.question;
+            document.getElementById('answer').innerHTML = card.answer;
+            document.getElementById('category-tag').textContent = card.category;
+            document.getElementById('progress-text').textContent = `Card ${currentCardIndex + 1} of ${flashcards.length}`;
+            document.getElementById('progress-fill').style.width = `${((currentCardIndex + 1) / flashcards.length) * 100}%`;
+            
+            // Reset flip state
+            isFlipped = false;
+            document.getElementById('flashcard').classList.remove('flipped');
+        }
+
+        function flipCard() {
+            const flashcard = document.getElementById('flashcard');
+            flashcard.classList.toggle('flipped');
+            isFlipped = !isFlipped;
+        }
+
+        function nextCard() {
+            if (currentCardIndex < flashcards.length - 1) {
+                currentCardIndex++;
+                updateCard();
+            }
+        }
+
+        function previousCard() {
+            if (currentCardIndex > 0) {
+                currentCardIndex--;
+                updateCard();
+            }
+        }
+
+        function shuffleCards() {
+            // Fisher-Yates shuffle
+            for (let i = cardOrder.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cardOrder[i], cardOrder[j]] = [cardOrder[j], cardOrder[i]];
+            }
+            currentCardIndex = 0;
+            updateCard();
+        }
+
+        function resetProgress() {
+            currentCardIndex = 0;
+            cardOrder = [...Array(flashcards.length).keys()];
+            updateCard();
+        }
+
+        // Add click event to card for flipping
+        document.getElementById('flashcard').addEventListener('click', flipCard);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case 'ArrowLeft':
+                    previousCard();
+                    break;
+                case 'ArrowRight':
+                    nextCard();
+                    break;
+                case ' ':
+                case 'Enter':
+                    event.preventDefault();
+                    flipCard();
+                    break;
+            }
+        });
+
+        // Initialize first card
+        updateCard();
+    </script>
+</body>
+</html>
