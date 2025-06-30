@@ -214,7 +214,7 @@
         </div>
 
         <div class="progress">
-            <span id="progress-text">Card 1 of 25</span>
+            <span id="progress-text">Card 1 of 65</span>
         </div>
         <div class="progress-bar">
             <div class="progress-fill" id="progress-fill"></div>
@@ -248,130 +248,337 @@
 
     <script>
         const flashcards = [
+            // Fundamentals - Kid-Friendly Explanations
             {
                 category: "Fundamentals",
                 question: "What does LLM stand for and what are the two main types?",
-                answer: "Large Language Model. The two main types are: <br><br>1. <strong>Encoder-only</strong> (like BERT) - for representation and understanding tasks<br><br>2. <strong>Decoder-only</strong> (like GPT) - for text generation and completion tasks"
-            },
-            {
-                category: "Architecture",
-                question: "What is the key innovation of the Transformer architecture?",
-                answer: "<strong>Self-attention mechanism</strong> - allows the model to focus on different parts of the input sequence when processing each token, enabling parallel processing and better long-range dependencies."
-            },
-            {
-                category: "Tokenization",
-                question: "What is tokenization and why is it important?",
-                answer: "Tokenization is the process of converting text into smaller units (tokens) that models can understand. It's crucial because models work with numbers, not raw text. Common methods include BPE and WordPiece."
-            },
-            {
-                category: "Embeddings",
-                question: "What are embeddings and how do they capture semantic meaning?",
-                answer: "Embeddings are dense vector representations of text that capture semantic relationships. Similar words/phrases have similar vectors, enabling mathematical operations on meaning (e.g., 'king' - 'man' + 'woman' ≈ 'queen')."
-            },
-            {
-                category: "Applications",
-                question: "What is semantic search and how does it differ from keyword search?",
-                answer: "Semantic search understands the <strong>meaning</strong> behind queries, not just keywords. It uses dense embeddings to find conceptually similar content, even if exact words don't match. Much more powerful than traditional keyword matching."
-            },
-            {
-                category: "RAG",
-                question: "What does RAG stand for and what problem does it solve?",
-                answer: "<strong>Retrieval-Augmented Generation</strong> - Combines retrieval of relevant documents with text generation. Solves the problem of LLMs having outdated or limited knowledge by providing current, specific information."
-            },
-            {
-                category: "Fine-tuning",
-                question: "What is the difference between pre-training and fine-tuning?",
-                answer: "<strong>Pre-training:</strong> Training on massive general text data to learn language patterns<br><br><strong>Fine-tuning:</strong> Additional training on specific tasks/domains to adapt the model for particular use cases"
-            },
-            {
-                category: "Models",
-                question: "What is BERT optimized for?",
-                answer: "<strong>Text understanding and representation tasks</strong> like classification, named entity recognition, and question answering. It's bidirectional (reads text in both directions) and creates rich embeddings."
-            },
-            {
-                category: "Models",
-                question: "What is GPT optimized for?",
-                answer: "<strong>Text generation and completion</strong>. It's autoregressive (predicts next token) and unidirectional (left-to-right), making it excellent for creative writing, summarization, and conversation."
-            },
-            {
-                category: "Attention",
-                question: "What does the attention mechanism allow transformers to do?",
-                answer: "Attention allows the model to <strong>focus on relevant parts</strong> of the input when processing each token. It creates weighted connections between all positions, enabling better understanding of context and relationships."
-            },
-            {
-                category: "Libraries",
-                question: "What is the Transformers library by Hugging Face?",
-                answer: "A Python library providing easy access to <strong>pre-trained transformer models</strong>. It includes thousands of models for various tasks and languages, with simple APIs for inference and fine-tuning."
-            },
-            {
-                category: "Libraries",
-                question: "What is Sentence-Transformers used for?",
-                answer: "Creating <strong>sentence and document embeddings</strong> for semantic similarity tasks. It's built on top of transformers and optimized for tasks like semantic search, clustering, and similarity comparison."
-            },
-            {
-                category: "Topic Modeling",
-                question: "What is BERTopic and who created it?",
-                answer: "<strong>BERTopic</strong> is a topic modeling technique that uses BERT embeddings for clustering documents and GPT for generating topic labels. Created by <strong>Maarten Grootendorst</strong> (co-author of this book)."
-            },
-            {
-                category: "Applications",
-                question: "Name three practical applications of LLMs covered in the book.",
-                answer: "1. <strong>Text Classification</strong> - sentiment analysis, document categorization<br>2. <strong>Semantic Search</strong> - intelligent document retrieval<br>3. <strong>Text Generation</strong> - copywriting, summarization, creative content"
-            },
-            {
-                category: "Vector DBs",
-                question: "What are vector databases and why are they important for LLMs?",
-                answer: "<strong>Specialized databases for storing and querying high-dimensional vectors</strong> (embeddings). Essential for semantic search, RAG systems, and similarity matching at scale. Examples: Pinecone, Weaviate, Chroma."
-            },
-            {
-                category: "Multimodal",
-                question: "What are multimodal models and give an example?",
-                answer: "Models that can process <strong>multiple types of input</strong> (text, images, audio). Example: <strong>CLIP</strong> - understands both text and images, enabling cross-modal search and understanding."
-            },
-            {
-                category: "Fine-tuning",
-                question: "What is contrastive learning in the context of LLMs?",
-                answer: "A training technique that teaches models to <strong>distinguish between similar and dissimilar examples</strong>. Used to create better embeddings by pulling similar items closer and pushing dissimilar items apart in vector space."
-            },
-            {
-                category: "Techniques",
-                question: "What is in-context learning?",
-                answer: "The ability of LLMs to <strong>learn from examples provided in the prompt</strong> without additional training. You can teach the model new tasks by showing examples in the input, leveraging the model's pre-trained knowledge."
-            },
-            {
-                category: "Search",
-                question: "What is dense retrieval and how does it improve search?",
-                answer: "<strong>Using neural embeddings to represent and search documents</strong> instead of sparse keyword methods. Captures semantic meaning, handles synonyms, and finds conceptually relevant results even without exact keyword matches."
-            },
-            {
-                category: "Search",
-                question: "What is reranking in search systems?",
-                answer: "A <strong>two-stage process</strong>: first retrieve candidate documents with fast methods, then use more sophisticated models to reorder results for better relevance. Balances speed and accuracy."
-            },
-            {
-                category: "Production",
-                question: "What are key considerations when deploying LLMs in production?",
-                answer: "• <strong>Latency</strong> - response time requirements<br>• <strong>Cost</strong> - computational expenses<br>• <strong>Scalability</strong> - handling multiple users<br>• <strong>Model size</strong> - memory constraints<br>• <strong>Accuracy</strong> - task performance"
-            },
-            {
-                category: "Tools",
-                question: "What is LangChain and what problem does it solve?",
-                answer: "A framework for building <strong>LLM-powered applications</strong>. Provides tools for chaining LLM calls, managing prompts, integrating with external data sources, and building complex AI workflows."
-            },
-            {
-                category: "Architecture",
-                question: "What is the difference between encoder-decoder and decoder-only architectures?",
-                answer: "<strong>Encoder-decoder:</strong> Separate encoding and decoding phases (T5, BART)<br><br><strong>Decoder-only:</strong> Single decoder stack that generates text autoregressively (GPT family) - simpler and often more effective for generation"
-            },
-            {
-                category: "Training",
-                question: "What is supervised fine-tuning (SFT)?",
-                answer: "<strong>Training on labeled examples</strong> to teach the model specific tasks or behaviors. Often used to make base language models follow instructions and behave more like helpful assistants."
+                answer: "<strong>Large Language Model</strong> - Think of it like a super smart robot that learned to read MILLIONS of books! <br><br>🤖 <strong>Type 1: Understanding Robots (BERT)</strong> - Really good at reading and understanding what text means<br><br>✍️ <strong>Type 2: Writing Robots (GPT)</strong> - Amazing at writing new text, like stories or answering questions"
             },
             {
                 category: "Fundamentals",
-                question: "According to the book, what makes this the 'Language AI' era?",
-                answer: "Recent advances in <strong>deep learning and transformer architectures</strong> have given AI startling new language capabilities, enabling systems to write and understand text better than ever before, creating new features, products, and industries."
+                question: "Imagine AI as learning to speak human language. How did this journey start?",
+                answer: "🕰️ <strong>The AI Language Journey:</strong><br><br>📚 <strong>2012-2017:</strong> AI was like a toddler learning individual words<br>🧠 <strong>2017:</strong> Transformers invented - AI learned to read whole sentences!<br>🚀 <strong>2018+:</strong> AI became like super-readers who read the entire internet<br>🤖 <strong>2022+:</strong> AI can now chat with us like smart friends!"
+            },
+            {
+                category: "Simple Analogies",
+                question: "If an AI model was like a student in school, what's the difference between pre-training and fine-tuning?",
+                answer: "🎒 <strong>Pre-training = Elementary School</strong><br>The AI reads EVERYTHING - storybooks, newspapers, websites - to learn basic language, like how kids learn to read and write<br><br>🎓 <strong>Fine-tuning = Specialized Training</strong><br>Now the AI goes to 'specialty school' to become really good at ONE thing, like being a doctor, teacher, or translator!"
+            },
+            {
+                category: "Tokenization",
+                question: "What is tokenization? Explain it like teaching a robot to read.",
+                answer: "🤖 <strong>Teaching Robots to Read Words:</strong><br><br>Imagine you're teaching a robot friend to read, but robots only understand numbers, not letters!<br><br>📝 'Hello World' becomes → ['Hello', 'World'] → [15496, 2159]<br><br>It's like giving each word a secret number code. Sometimes big words get split up: 'incredible' might become 'incred' + 'ible'!"
+            },
+            {
+                category: "Tokenization",
+                question: "Why can't we just feed raw text directly to AI models?",
+                answer: "🧠 Think of AI like a calculator - it ONLY understands numbers!<br><br>❌ 'The cat sat' = Confusing squiggles to AI<br>✅ [464, 2598, 3332] = Perfect sense!<br><br>It's like translating English to 'Robot Language' so they can understand us. Every word gets a special number ID!"
+            },
+            {
+                category: "Embeddings",
+                question: "What are embeddings? Use a map analogy that a kid would understand.",
+                answer: "🗺️ <strong>Word Maps in Robot Brains!</strong><br><br>Imagine all words live in a magical city where similar words are neighbors:<br><br>🏠 'Cat' and 'Dog' live on Pet Street<br>🏠 'Happy' and 'Joyful' live on Emotion Avenue<br>🏠 'King' and 'Queen' live in Royal Palace<br><br>Embeddings are like GPS coordinates that tell the robot exactly where each word 'lives'!"
+            },
+            {
+                category: "Embeddings",
+                question: "How do word embeddings capture meaning? Give a playground example.",
+                answer: "🎮 <strong>The Playground Rule:</strong><br><br>Kids who like similar things play together! In AI's word playground:<br><br>⚽ Sports words hang out together: [football, soccer, basketball]<br>🍎 Food words share snacks: [apple, banana, orange]<br>📚 School words study together: [teacher, student, homework]<br><br>The AI measures 'friendship distance' - closer friends = more similar meanings!"
+            },
+            {
+                category: "Architecture",
+                question: "What makes the Transformer architecture special? Use a classroom attention analogy.",
+                answer: "👨‍🏫 <strong>The Super-Focused Classroom:</strong><br><br>Old AI = One student reads one word at a time, very slowly<br><br>🧠 <strong>Transformer = Magical Classroom where:</strong><br>• Every student (word) can talk to EVERY other student at once<br>• They pay MORE attention to important friends<br>• Everyone learns together instead of waiting in line<br><br>It's like having superpowers to focus on what's important!"
+            },
+            {
+                category: "Attention",
+                question: "Explain the attention mechanism like it's a spotlight in a theater.",
+                answer: "🎭 <strong>The Smart Theater Spotlight:</strong><br><br>When an actor says 'I love my mom', the magical spotlight knows to shine brighter on:<br><br>💡 'I' connects to 'love' and 'my'<br>💡 'love' connects strongly to 'mom'<br>💡 'my' connects to 'mom'<br><br>The spotlight helps the AI understand which words are important friends in each sentence!"
+            },
+            {
+                category: "Models",
+                question: "BERT vs GPT: Explain the difference like two different types of smart friends.",
+                answer: "👦 <strong>BERT = The Great Listener</strong><br>• Reads your WHOLE message before answering<br>• Amazing at understanding what you mean<br>• Best at: 'Is this email happy or sad?'<br><br>👧 <strong>GPT = The Great Storyteller</strong><br>• Reads left-to-right, one word at a time<br>• Amazing at continuing stories<br>• Best at: 'Once upon a time...' → Creates magical tales!"
+            },
+            {
+                category: "Models",
+                question: "Why is BERT called 'bidirectional'? Use a book reading analogy.",
+                answer: "📖 <strong>The Special Book Reader:</strong><br><br>🏃‍♂️ <strong>Normal readers (like GPT):</strong> Read left → right, one word at a time<br><br>🧙‍♂️ <strong>BERT = Magic Reader:</strong><br>• Reads forwards AND backwards<br>• Sees the WHOLE sentence before deciding what each word means<br>• Like having X-ray vision to see the ending while reading the beginning!"
+            },
+            {
+                category: "Models",
+                question: "What makes GPT good at generating text? Use a storytelling game analogy.",
+                answer: "📚 <strong>The Story Prediction Game:</strong><br><br>🎲 You say: 'Once upon a time, there was a magical...'<br><br>🤖 GPT thinks: 'Based on millions of stories I've read, the next word is probably: dragon, castle, forest, or wizard!'<br><br>It's like the world's best guesser who read every story ever written and can continue any tale!"
+            },
+            {
+                category: "Applications",
+                question: "What is text classification? Explain like sorting your toy box.",
+                answer: "🧸 <strong>The Super-Smart Toy Sorter:</strong><br><br>Just like you sort toys into boxes:<br><br>🚗 Cars go in the Vehicle Box<br>🧸 Teddy bears go in the Stuffed Animal Box<br>📚 Books go in the Reading Box<br><br>🤖 <strong>AI sorts text the same way:</strong><br>😊 Happy emails → Happy Box<br>😢 Sad emails → Sad Box<br>📧 Spam emails → Trash Box"
+            },
+            {
+                category: "Applications",
+                question: "How does sentiment analysis work? Use emoji examples.",
+                answer: "😊😢😡 <strong>The Emotion Detective:</strong><br><br>🕵️ AI reads text and guesses the emotion:<br><br>📝 'I love this pizza!' → 😊 HAPPY (words: love, pizza)<br>📝 'This movie is terrible' → 😢 SAD (words: terrible)<br>📝 'I'm so excited for vacation!' → 😊 HAPPY (words: excited, vacation)<br><br>Like having a robot friend who's really good at reading feelings!"
+            },
+            {
+                category: "Search",
+                question: "What's the difference between keyword search and semantic search? Use a library analogy.",
+                answer: "📚 <strong>Two Types of Librarians:</strong><br><br>🤖 <strong>Old Librarian (Keyword):</strong><br>You: 'Books about fast cars'<br>Librarian: Only finds books with EXACTLY 'fast' and 'cars'<br><br>🧙‍♀️ <strong>Smart Librarian (Semantic):</strong><br>You: 'Books about fast cars'<br>Librarian: Finds books about 'racing', 'speed', 'automobiles', 'sports cars' - understands what you REALLY want!"
+            },
+            {
+                category: "Search",
+                question: "How does semantic search understand meaning? Use a synonym game example.",
+                answer: "🎯 <strong>The Synonym Detective Game:</strong><br><br>When you search for 'happy', semantic search is smart enough to also find:<br><br>😊 Joyful, cheerful, delighted, ecstatic<br>🎉 Celebrating, excited, pleased<br>😄 Smiling, laughing, content<br><br>It's like having a friend who speaks ALL the ways to say the same thing!"
+            },
+            {
+                category: "RAG",
+                question: "What is RAG (Retrieval-Augmented Generation)? Explain like a student with superpowers.",
+                answer: "🦸‍♂️ <strong>The Super-Student with Magic Books:</strong><br><br>📚 <strong>Problem:</strong> Student (AI) only remembers old lessons<br><br>✨ <strong>RAG Superpower:</strong><br>1. 🔍 AI quickly looks up current info in magic library<br>2. 📖 Reads the newest facts<br>3. ✍️ Writes answer using both old knowledge + new facts<br><br>Like having a study buddy who can instantly access any book!"
+            },
+            {
+                category: "RAG",
+                question: "Why do we need RAG? Use an encyclopedia analogy.",
+                answer: "📚 <strong>The Out-of-Date Encyclopedia Problem:</strong><br><br>🤖 <strong>AI without RAG:</strong> Like a smart kid with a 2020 encyclopedia trying to answer 'Who won the 2024 Olympics?'<br><br>🚀 <strong>AI with RAG:</strong> Same smart kid, but can quickly grab the newest encyclopedia from the library!<br><br>RAG gives AI access to fresh, up-to-date information!"
+            },
+            {
+                category: "Vector DBs",
+                question: "What are vector databases? Explain like a magical filing cabinet.",
+                answer: "🗄️ <strong>The Magical Filing Cabinet:</strong><br><br>📁 <strong>Normal filing:</strong> Papers sorted by letter (A, B, C...)<br><br>🔮 <strong>Vector filing:</strong> Papers sorted by 'similarity magic'<br>• All dog photos float near each other<br>• All happy songs group together<br>• All science articles cluster up<br><br>The cabinet magically knows which things are 'similar' and keeps them close!"
+            },
+            {
+                category: "Libraries",
+                question: "What is Hugging Face Transformers library? Use a toy store analogy.",
+                answer: "🧸 <strong>The Amazing AI Toy Store:</strong><br><br>🏪 Imagine a magical toy store where you can 'rent' any AI robot:<br><br>🤖 'I need a translator robot!' → Grab one from shelf<br>🤖 'I need a story-writing robot!' → Here's GPT!<br>🤖 'I need a reading robot!' → BERT is ready!<br><br>Hugging Face = The store where thousands of pre-trained AI 'toys' are ready to use!"
+            },
+            {
+                category: "Libraries",
+                question: "What does Sentence-Transformers do? Explain like a meaning-measuring tool.",
+                answer: "📏 <strong>The Meaning Ruler:</strong><br><br>🔍 Takes any sentence and turns it into a 'meaning fingerprint'<br><br>📝 'I love dogs' → [0.2, 0.8, 0.1, 0.9...]<br>📝 'I adore puppies' → [0.3, 0.7, 0.2, 0.8...]<br><br>Then it can measure: 'How similar are these sentences?' - like a ruler for measuring meaning instead of length!"
+            },
+            {
+                category: "Topic Modeling",
+                question: "What is BERTopic? Explain like organizing a messy room.",
+                answer: "🏠 <strong>The Room Organizing Robot:</strong><br><br>📚 <strong>You have 1000 messy documents everywhere!</strong><br><br>🤖 <strong>BERTopic robot comes in and:</strong><br>1. 📖 Reads every document<br>2. 🔍 Groups similar ones together<br>3. 🏷️ Makes nice labels: 'Sports Articles', 'Cooking Recipes', 'Science News'<br><br>Like having a super-organized friend clean your room and label everything!"
+            },
+            {
+                category: "Fine-tuning",
+                question: "What is fine-tuning? Use a pet training analogy.",
+                answer: "🐕 <strong>Training Your Smart Pet:</strong><br><br>📚 <strong>Pre-training:</strong> Your dog learned basic commands (sit, stay, come)<br><br>🎯 <strong>Fine-tuning:</strong> Now you teach special tricks:<br>• 🏥 Medical dog: Recognize diseases<br>• 🎭 Actor dog: Perform in movies<br>• 🧑‍🏫 Teacher dog: Help kids learn<br><br>Same smart dog, but specialized for specific jobs!"
+            },
+            {
+                category: "Fine-tuning",
+                question: "What is contrastive learning? Use a 'spot the difference' game analogy.",
+                answer: "🎮 <strong>The 'Spot the Difference' Training Game:</strong><br><br>🤖 AI learns by playing comparison games:<br><br>👍 <strong>'These are similar!'</strong><br>🐱 'Cat' and 'Kitten' → Pull closer together<br><br>👎 <strong>'These are different!'</strong><br>🐱 'Cat' and 🚗 'Car' → Push far apart<br><br>Like training AI to be really good at the 'which things belong together' game!"
+            },
+            {
+                category: "Training",
+                question: "What is in-context learning? Explain like teaching by showing examples.",
+                answer: "👨‍🏫 <strong>Learning by Example (No Homework!):</strong><br><br>Instead of studying for weeks, you just show the AI examples:<br><br>📝 <strong>You:</strong> 'Happy: 😊, Sad: 😢, Angry: 😡'<br>📝 <strong>You:</strong> 'Now what emoji for Excited?'<br>🤖 <strong>AI:</strong> '🎉!'<br><br>The AI learns new tricks just from seeing a few examples - like a super-fast learner!"
+            },
+            {
+                category: "Training",
+                question: "What is supervised fine-tuning (SFT)? Use a cooking class analogy.",
+                answer: "👨‍🍳 <strong>AI Cooking School:</strong><br><br>📚 <strong>Before:</strong> AI knows general cooking (pre-trained)<br><br>🎯 <strong>Cooking Class (SFT):</strong><br>👨‍🏫 Teacher shows: 'Question: How make pasta?' → 'Answer: Boil water, add pasta...'<br>🤖 AI practices with 1000s of question-answer examples<br><br>Now AI becomes a specialized cooking assistant!"
+            },
+            {
+                category: "Multimodal",
+                question: "What are multimodal models? Use a superhero with multiple powers analogy.",
+                answer: "🦸‍♂️ <strong>The Multi-Power Superhero:</strong><br><br>🤖 <strong>Normal AI:</strong> Only has 'reading text' superpower<br><br>🌟 <strong>Multimodal AI (like CLIP):</strong><br>👁️ Can 'see' pictures<br>👂 Can 'hear' sounds<br>📖 Can 'read' text<br>🎥 Can 'watch' videos<br><br>Like having a robot friend who can experience the world like humans do!"
+            },
+            {
+                category: "Multimodal",
+                question: "How does CLIP work? Explain like a matching game.",
+                answer: "🔗 <strong>The Picture-Word Matching Game:</strong><br><br>🤖 CLIP learned by looking at millions of pictures with captions:<br><br>🐕 Picture of dog + Text 'cute puppy'<br>🌅 Picture of sunset + Text 'beautiful evening'<br><br>Now it can:<br>📸 Look at any picture and describe it<br>📝 Read any description and find matching pictures<br><br>Like a robot that's amazing at 'memory matching' games!"
+            },
+            {
+                category: "Tools",
+                question: "What is LangChain? Explain like building with LEGO blocks.",
+                answer: "🧱 <strong>AI LEGO Building Kit:</strong><br><br>Instead of building one big AI robot, you connect smaller pieces:<br><br>🤖 Block 1: 'Question Answerer'<br>🔍 Block 2: 'Information Finder'<br>💾 Block 3: 'Memory Keeper'<br>📝 Block 4: 'Response Writer'<br><br>LangChain helps you snap these blocks together to build custom AI helpers!"
+            },
+            {
+                category: "Production",
+                question: "What challenges happen when AI goes from lab to real world? Use a school play analogy.",
+                answer: "🎭 <strong>From Practice to Opening Night:</strong><br><br>🏠 <strong>Practice at home (Lab):</strong> One kid, one computer, lots of time<br><br>🎪 <strong>Opening night (Production):</strong><br>😰 100s of people watching (users)<br>⏰ Must be fast (no waiting)<br>💰 Can't cost too much money<br>🔧 Must work perfectly every time<br><br>Much harder when everyone's watching!"
+            },
+            {
+                category: "Production",
+                question: "What is model quantization? Use a backpack packing analogy.",
+                answer: "🎒 <strong>Packing for the Big Trip:</strong><br><br>👕 <strong>Before:</strong> AI model = Huge suitcase with everything<br><br>🎒 <strong>Quantization = Smart Packing:</strong><br>• Fold clothes smaller (compress numbers)<br>• Leave non-essentials home (remove less important parts)<br>• Still have everything you need, but fits in backpack!<br><br>Smaller AI that runs faster on your phone!"
+            },
+            {
+                category: "Advanced",
+                question: "What is few-shot learning? Use a quick study analogy.",
+                answer: "⚡ <strong>The Speed Learning Superpower:</strong><br><br>👨‍🎓 <strong>Normal learning:</strong> Study 1000 examples to learn something new<br><br>🚀 <strong>Few-shot learning:</strong> AI learns from just 2-3 examples!<br><br>📝 Show AI: 'Dog → Woof, Cat → Meow'<br>❓ Ask: 'What sound does cow make?'<br>🤖 AI: 'Moo!' (learned the pattern instantly!)<br><br>Like having a genius friend who 'gets it' super fast!"
+            },
+            {
+                category: "Advanced",
+                question: "What is zero-shot learning? Use a guessing game analogy.",
+                answer: "🔮 <strong>The Amazing Mind Reader:</strong><br><br>🎯 You ask AI to do something it was NEVER specifically taught:<br><br>❓ 'Translate this to French' (never learned French translation)<br>🤖 But AI thinks: 'I know French words, I know English words, I can figure this out!'<br><br>Like a super-smart friend who can solve puzzles they've never seen before!"
+            },
+            {
+                category: "Search",
+                question: "What is dense retrieval? Use a treasure hunt analogy.",
+                answer: "🗺️ <strong>The Smart Treasure Hunter:</strong><br><br>🏴‍☠️ <strong>Old treasure hunting:</strong> Look for exact words on the map<br><br>🧠 <strong>Dense retrieval:</strong> Understand what treasure you REALLY want<br><br>🔍 You say: 'Find shiny things'<br>💎 Smart hunter finds: diamonds, gold, crystals, mirrors<br><br>It understands 'meaning' not just exact words!"
+            },
+            {
+                category: "Search",
+                question: "What is reranking in search? Use a talent show analogy.",
+                answer: "🎭 <strong>The Two-Round Talent Show:</strong><br><br>🥇 <strong>Round 1 (Fast screening):</strong> Quickly pick 100 contestants from 10,000<br><br>🏆 <strong>Round 2 (Careful judging):</strong> Expert judges carefully rank the top 100<br><br>🎯 <strong>Result:</strong> Best performers win!<br><br>Search works the same: fast filtering, then careful ranking for the best results!"
+            },
+            {
+                category: "Evaluation",
+                question: "How do we measure if AI is doing a good job? Use a school test analogy.",
+                answer: "📊 <strong>AI Report Card:</strong><br><br>📝 <strong>Different 'subjects' to grade:</strong><br>🎯 Accuracy: How often AI gets right answer<br>⏰ Speed: How fast AI answers<br>📏 Precision: When AI says 'cat', is it really a cat?<br>🔍 Recall: Does AI find ALL the cats?<br><br>Like getting grades in math, reading, and science!"
+            },
+            {
+                category: "Ethics",
+                question: "What are AI biases? Use a prejudiced judge analogy that kids can understand.",
+                answer: "⚖️ <strong>The Unfair Judge Problem:</strong><br><br>😔 If a judge only learned from unfair examples:<br><br>📚 'All doctors are men' (wrong!)<br>📚 'All nurses are women' (wrong!)<br><br>🤖 <strong>AI learns the same unfairness!</strong><br><br>✅ <strong>Solution:</strong> Teach AI with fair, diverse examples so it treats everyone equally!"
+            },
+            {
+                category: "Ethics",
+                question: "Why is AI safety important? Use a powerful tool analogy.",
+                answer: "🔨 <strong>Great Power, Great Responsibility:</strong><br><br>🛠️ AI is like a super-powerful tool:<br><br>✅ <strong>Good uses:</strong> Help doctors, teach students, translate languages<br><br>⚠️ <strong>We must be careful:</strong> Make sure it's helpful, honest, and safe<br><br>Like learning to use any powerful tool - with great care and responsibility!"
+            },
+            {
+                category: "Future",
+                question: "What might happen as AI gets even smarter? Use a helpful assistant analogy.",
+                answer: "🚀 <strong>Your Future AI Best Friend:</strong><br><br>🤖 <strong>Today:</strong> AI helps with homework and answers questions<br><br>🌟 <strong>Future possibilities:</strong><br>👨‍⚕️ AI doctors helping everyone stay healthy<br>👨‍🏫 AI teachers giving personalized lessons<br>🌍 AI solving big problems like climate change<br><br>Like having the smartest, most helpful friend ever!"
+            },
+            {
+                category: "Fundamentals",
+                question: "Why are transformers called 'transformers'? Use a shape-shifting analogy.",
+                answer: "🦸‍♂️ <strong>The Shape-Shifting Text Heroes:</strong><br><br>They 'transform' text from one form to another:<br><br>🔄 English → French<br>🔄 Question → Answer<br>🔄 Messy text → Clean summary<br>🔄 Ideas → Stories<br><br>Like magical robots that can change anything into anything else - but with words instead of shapes!"
+            },
+            {
+                category: "Architecture",
+                question: "What are layers in neural networks? Use a cake-baking analogy.",
+                answer: "🎂 <strong>Baking the Perfect AI Cake:</strong><br><br>👨‍🍳 Each layer adds something special:<br><br>🥄 Layer 1: Mix basic ingredients (simple patterns)<br>🥄 Layer 2: Add flavoring (word meanings)<br>🥄 Layer 3: Add frosting (complex understanding)<br>🥄 Layer 4: Add decorations (final smart answers)<br><br>More layers = smarter AI, like a more delicious cake!"
+            },
+            {
+                category: "Performance",
+                question: "What is a benchmark in AI? Use a sports competition analogy.",
+                answer: "🏆 <strong>AI Olympics:</strong><br><br>Just like athletes compete in standard events:<br><br>🏃‍♂️ 100m dash, swimming, gymnastics<br><br>🤖 <strong>AI competes in standard tests:</strong><br>📚 Reading comprehension<br>🧮 Math problems<br>💬 Conversation skills<br>🌍 Translation accuracy<br><br>Benchmarks = The official scoreboard for AI intelligence!"
+            },
+            {
+                category: "Data",
+                question: "Why do AI models need so much training data? Use a learning-to-cook analogy.",
+                answer: "👨‍🍳 <strong>Learning to Cook Like a Master Chef:</strong><br><br>🍳 To become a great cook, you need to:<br><br>📖 Read thousands of recipes<br>👥 Watch many cooking shows<br>🥘 Practice making lots of dishes<br>🍽️ Taste many different foods<br><br>🤖 AI needs millions of text examples to learn all the patterns in human language!"
+            },
+            {
+                category: "Context",
+                question: "What is context window in AI? Use a memory game analogy.",
+                answer: "🧠 <strong>AI's Memory Game:</strong><br><br>🎮 Imagine a memory game where you can only remember the last 10 cards:<br><br>📝 <strong>Short context window:</strong> Remember last 10 words<br>📚 <strong>Long context window:</strong> Remember last 1000 words<br><br>💭 The bigger the memory, the better AI understands long conversations and stories!"
+            },
+            {
+                category: "Programming",
+                question: "What is an API in AI? Use a restaurant ordering analogy.",
+                answer: "🍽️ <strong>The Smart Restaurant:</strong><br><br>🤖 <strong>You (customer):</strong> 'I want the translation special'<br>📝 <strong>Waiter (API):</strong> Takes your order to the kitchen<br>👨‍🍳 <strong>Chef (AI model):</strong> Prepares your translation<br>🍽️ <strong>Waiter:</strong> Brings back perfect translation<br><br>API = The helpful waiter between you and the AI chef!"
+            },
+            {
+                category: "Learning",
+                question: "What is the difference between supervised and unsupervised learning? Use a homework analogy.",
+                answer: "📚 <strong>Two Types of Learning:</strong><br><br>✅ <strong>Supervised (with answer key):</strong><br>Teacher gives problems AND answers<br>Student learns from seeing correct solutions<br><br>🤔 <strong>Unsupervised (no answer key):</strong><br>Student gets bunch of puzzle pieces<br>Must figure out patterns and groups alone<br><br>Like homework with vs. without the answer sheet!"
+            },
+            // Additional detailed cards to reach 50-70 target
+            {
+                category: "Fundamentals",
+                question: "How big is 'large' in Large Language Models? Use a brain comparison.",
+                answer: "🧠 <strong>AI Brain Size Competition:</strong><br><br>👶 Small AI: 10 million connections (like a bee brain)<br>🧑 Medium AI: 1 billion connections (like a mouse brain)<br>🤖 <strong>Large LLM: 100+ billion connections</strong> (bigger than human brain!)<br><br>That's why they can remember so much and be so smart!"
+            },
+            {
+                category: "Training",
+                question: "What is the 'training data' that AI learns from? Use a reading marathon analogy.",
+                answer: "📚 <strong>The Ultimate Reading Marathon:</strong><br><br>🏃‍♂️ Imagine reading EVERYTHING on the internet:<br><br>📖 All Wikipedia articles<br>📰 Millions of news stories<br>📚 Countless books<br>💬 Billions of conversations<br><br>🤖 AI 'reads' all this to learn how humans use language!"
+            },
+            {
+                category: "Models",
+                question: "What makes ChatGPT different from older chatbots? Use a conversation skill analogy.",
+                answer: "💬 <strong>Evolution of Robot Friends:</strong><br><br>🤖 <strong>Old chatbots:</strong> Like talking to a parrot - only repeat programmed phrases<br><br>🧠 <strong>ChatGPT:</strong> Like talking to a super-smart friend who:<br>• Understands context and remembers the conversation<br>• Can reason and think creatively<br>• Adapts to your style of talking<br><br>Much more like talking to a real person!"
+            },
+            {
+                category: "Techniques",
+                question: "What is prompt engineering? Use a magic spell analogy.",
+                answer: "🧙‍♂️ <strong>Casting the Perfect Spell:</strong><br><br>✨ The way you ask AI questions is like casting spells:<br><br>❌ <strong>Bad spell:</strong> 'Write something'<br>✅ <strong>Good spell:</strong> 'Write a funny story about a dragon who's afraid of mice, in 100 words'<br><br>🎯 Better instructions = Better magic results!"
+            },
+            {
+                category: "Applications",
+                question: "How can AI help with writing? Use a writing assistant analogy.",
+                answer: "✍️ <strong>Your Super Writing Buddy:</strong><br><br>📝 <strong>AI can help you:</strong><br>💡 Brainstorm ideas when you're stuck<br>📖 Write rough drafts to get started<br>🔍 Check grammar and spelling<br>🎨 Make writing more interesting<br>📚 Summarize long articles<br><br>Like having the world's best writing tutor!"
+            },
+            {
+                category: "Limitations",
+                question: "What are some things AI still can't do well? Use a smart kid analogy.",
+                answer: "🧠 <strong>Even Smart Kids Have Limits:</strong><br><br>🤖 AI is like a very smart kid who:<br><br>❌ Sometimes makes up facts (like a creative storyteller)<br>❌ Can't actually 'see' or 'feel' the real world<br>❌ Doesn't have real emotions or experiences<br>❌ Can't learn new things after training ends<br><br>Super smart, but still needs human guidance!"
+            },
+            {
+                category: "Safety",
+                question: "How do we make sure AI is helpful and safe? Use a good friend analogy.",
+                answer: "👫 <strong>Teaching AI to be a Good Friend:</strong><br><br>✅ <strong>We train AI to:</strong><br>💝 Be helpful and kind<br>🚫 Not say mean or harmful things<br>✋ Refuse dangerous requests<br>🤝 Respect everyone equally<br>📚 Admit when it doesn't know something<br><br>Like teaching a friend good manners!"
+            },
+            {
+                category: "Future",
+                question: "How might AI change schools and learning? Use a personal tutor analogy.",
+                answer: "🎓 <strong>Everyone Gets a Super Tutor:</strong><br><br>🤖 <strong>Future AI tutors might:</strong><br>📚 Explain things in YOUR learning style<br>⏰ Available 24/7 for questions<br>🎮 Make learning fun with games<br>📊 Track what you've mastered<br>🌍 Teach you about anything you're curious about<br><br>Like having the world's best teacher, just for you!"
+            },
+            {
+                category: "History",
+                question: "When did AI start getting really good at language? Use a growing up timeline.",
+                answer: "👶 <strong>AI Growing Up Timeline:</strong><br><br>🍼 <strong>2010s:</strong> AI baby - could barely read simple words<br>🧒 <strong>2017:</strong> AI kid - learned to read whole sentences (Transformers!)<br>🧑‍🎓 <strong>2018-2020:</strong> AI teenager - got really good at understanding<br>🤖 <strong>2020+:</strong> AI adult - can chat, write, and help with complex tasks!<br><br>Just like humans, AI needed time to grow up!"
+            },
+            {
+                category: "Programming",
+                question: "Do you need to be a programmer to use AI? Use a smartphone analogy.",
+                answer: "📱 <strong>AI is Like Smartphones Now:</strong><br><br>🔧 <strong>Building AI:</strong> Need programming (like building the phone)<br><br>📱 <strong>Using AI:</strong> Just need to know how to 'tap and talk'!<br><br>✅ ChatGPT, Google Translate, voice assistants<br>✅ Just type questions or speak normally<br>✅ No coding required - anyone can use it!"
+            },
+            {
+                category: "Data",
+                question: "How does AI learn patterns in language? Use a pattern detective analogy.",
+                answer: "🕵️‍♂️ <strong>The Pattern Detective:</strong><br><br>🔍 AI reads millions of sentences and notices:<br><br>📝 'The ___ is red' → usually 'car', 'apple', 'house'<br>📝 'I feel ___' → usually 'happy', 'sad', 'excited'<br>📝 'Once upon a ___' → almost always 'time'<br><br>🧠 It learns what words typically go together!"
+            },
+            {
+                category: "Capabilities",
+                question: "What amazing things can modern AI do with language? Use a swiss army knife analogy.",
+                answer: "🔧 <strong>The Ultimate Language Swiss Army Knife:</strong><br><br>🌍 <strong>Translate</strong> between 100+ languages<br>📝 <strong>Write</strong> stories, poems, emails<br>🤔 <strong>Answer</strong> complex questions<br>📚 <strong>Summarize</strong> long documents<br>💻 <strong>Code</strong> computer programs<br>🎭 <strong>Role-play</strong> different characters<br><br>One AI tool, many language superpowers!"
+            },
+            {
+                category: "Comparison",
+                question: "How is training AI different from teaching humans? Use a learning speed analogy.",
+                answer: "⚡ <strong>Speed Learning Differences:</strong><br><br>👨‍🎓 <strong>Humans:</strong><br>📚 Read one book at a time<br>🕐 Take years to become experts<br>🧠 Learn through experience and emotions<br><br>🤖 <strong>AI:</strong><br>⚡ 'Reads' millions of books simultaneously<br>⏱️ Becomes expert in weeks<br>🔢 Learns through mathematical patterns<br><br>Different types of intelligence!"
+            },
+            {
+                category: "Creativity",
+                question: "Can AI be creative? Use an art class analogy.",
+                answer: "🎨 <strong>AI in Art Class:</strong><br><br>🤖 AI learns creativity by studying millions of examples:<br><br>📚 Reads every story ever written<br>🎵 Analyzes every song style<br>🖼️ Studies every art technique<br><br>✨ <strong>Then creates new combinations!</strong><br><br>Like a student who memorized every creative work and can mix them in new ways!"
+            },
+            {
+                category: "Communication",
+                question: "Why is natural language processing important? Use a universal translator analogy.",
+                answer: "🌐 <strong>The Universal Translator Dream:</strong><br><br>🗣️ Imagine if computers could understand humans as easily as humans understand each other:<br><br>💬 Talk to any device naturally<br>🌍 Instant translation between any languages<br>📱 Technology that 'gets' what you mean<br>🤝 Bridges between different cultures<br><br>Breaking down all communication barriers!"
+            },
+            {
+                category: "Industry",
+                question: "How are different industries using AI language models? Use a superhero team analogy.",
+                answer: "🦸‍♂️ <strong>AI Superhero Team at Work:</strong><br><br>🏥 <strong>Doctor AI:</strong> Helps diagnose diseases<br>👨‍🏫 <strong>Teacher AI:</strong> Creates personalized lessons<br>👨‍💼 <strong>Business AI:</strong> Writes reports and emails<br>👨‍⚖️ <strong>Lawyer AI:</strong> Reviews legal documents<br>🎬 <strong>Writer AI:</strong> Helps create movies and books<br><br>Every industry gets its own AI helper!"
+            },
+            {
+                category: "Scale",
+                question: "What does it mean when we say AI models are getting bigger? Use a library growth analogy.",
+                answer: "📚 <strong>From Small Library to Infinite Library:</strong><br><br>🏠 <strong>2018 BERT:</strong> Village library (110M books)<br>🏢 <strong>2019 GPT-2:</strong> City library (1.5B books)<br>🏰 <strong>2020 GPT-3:</strong> National library (175B books)<br>🌍 <strong>2023+ Models:</strong> Universe library (1T+ books)<br><br>More 'books' = smarter AI!"
+            },
+            {
+                category: "Learning",
+                question: "What's the difference between machine learning and deep learning? Use a brain depth analogy.",
+                answer: "🧠 <strong>Shallow vs Deep Thinking:</strong><br><br>🤔 <strong>Machine Learning:</strong> Like solving puzzles with simple rules<br><br>🧠 <strong>Deep Learning:</strong> Like having multiple layers of thinking:<br>• Layer 1: Notice basic patterns<br>• Layer 2: Combine patterns<br>• Layer 3: Find complex relationships<br>• Layer 4: Make smart decisions<br><br>Deeper = smarter!"
+            },
+            {
+                category: "Memory",
+                question: "How does AI 'remember' things differently than humans? Use a filing system analogy.",
+                answer: "🗂️ <strong>Two Different Memory Systems:</strong><br><br>🧠 <strong>Human memory:</strong><br>💭 Emotional and associative<br>📸 Remembers experiences and feelings<br>🌈 Sometimes forgets or changes details<br><br>🤖 <strong>AI memory:</strong><br>📊 Mathematical and precise<br>💾 Stores exact number patterns<br>🎯 Perfect recall of training data patterns<br><br>Different but both amazing!"
+            },
+            {
+                category: "Philosophy",
+                question: "Do AI models really 'understand' language or just mimic it? Use an actor analogy.",
+                answer: "🎭 <strong>The Great Acting Debate:</strong><br><br>🤔 <strong>Some say:</strong> AI is like a brilliant actor who memorized every script and can perform any role perfectly, but doesn't truly 'feel' the character<br><br>🧠 <strong>Others say:</strong> If AI can use language as well as humans, maybe that IS understanding!<br><br>🤷‍♂️ <strong>Truth:</strong> Nobody knows for sure yet! It's one of the biggest mysteries in AI."
             }
         ];
 
