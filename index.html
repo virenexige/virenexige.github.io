@@ -474,11 +474,11 @@
                 
                 <div class="stats">
                     <div class="stat-item">
-                        <span class="stat-number">85</span>
+                        <span class="stat-number">100</span>
                         <span class="stat-label">Flashcards</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">6</span>
+                        <span class="stat-number">7</span>
                         <span class="stat-label">Topics</span>
                     </div>
                     <div class="stat-item">
@@ -492,7 +492,7 @@
                 <div class="nav-tab active" onclick="showCategory('all')">All Topics</div>
                 <div class="nav-tab" onclick="showCategory('fundamentals')">Fundamentals</div>
                 <div class="nav-tab" onclick="showCategory('technical')">Technical</div>
-                <div class="nav-tab" onclick="showCategory('applications')">Applications</div>
+                <div class="nav-tab" onclick="showCategory('applications')">Applications</div> 
             </div>
 
             <!-- All Topics -->
@@ -671,6 +671,32 @@
                             <button class="start-btn">Start Learning →</button>
                         </div>
                     </div>
+                     <div class="flashcard-preview" onclick="startStudying('vector')">
+                        <div class="card-header">
+                            <div class="card-icon">🎯</div>
+                            <div>
+                                <div class="card-title">Vector Concepts</div>
+                                <div class="card-count">15 cards</div>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            TBD
+                        </div>
+                        <div class="card-topics">
+                            <span class="topic-tag">Database</span>
+                        </div>
+                        <div class="card-action">
+                            <div class="difficulty-level">
+                                <span>Vector</span>
+                                <div class="difficulty-dots">
+                                    <div class="difficulty-dot filled"></div>
+                                    <div class="difficulty-dot filled"></div>
+                                    <div class="difficulty-dot filled"></div>
+                                </div>
+                            </div>
+                            <button class="start-btn">Start Learning →</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -743,7 +769,7 @@
             },
             {
                 category: "Fundamentals",
-                question: "How big is 'large' in Large Language Models? Use a brain comparison.",
+                question: "How big is 'large' in Large Language Models?",
                 answer: "🧠 <strong>AI Brain Size Competition:</strong><br><br>👶 Small AI: 10 million connections (like a bee brain)<br>🧑 Medium AI: 1 billion connections (like a mouse brain)<br>🤖 <strong>Large LLM: 100+ billion connections</strong> (bigger than human brain!)<br><br>That's why they can remember so much and be so smart!"
             },
             {
@@ -768,7 +794,7 @@
             },
             {
                 category: "Fundamentals",
-                question: "What are parameters in an LLM? Use a recipe analogy.",
+                question: "What are parameters in an LLM?",
                 answer: "👨‍🍳 <strong>The Master Chef's Secret Recipe:</strong><br><br>📝 A recipe has ingredients and amounts: '2 cups flour, 1 tsp salt'<br><br>🤖 <strong>LLM parameters are like recipe measurements:</strong><br>• GPT-3: 175 billion 'ingredients'<br>• Each one controls how the AI 'mixes' words together<br><br>More parameters = more complex recipes = smarter AI!"
             },
             {
@@ -805,17 +831,17 @@
             // ===== ARCHITECTURE (15 cards) =====
             {
                 category: "Architecture",
-                question: "What makes the Transformer architecture special? Use a classroom attention analogy.",
+                question: "What makes the Transformer architecture special? ",
                 answer: "👨‍🏫 <strong>The Super-Focused Classroom:</strong><br><br>Old AI = One student reads one word at a time, very slowly<br><br>🧠 <strong>Transformer = Magical Classroom where:</strong><br>• Every student (word) can talk to EVERY other student at once<br>• They pay MORE attention to important friends<br>• Everyone learns together instead of waiting in line<br><br>It's like having superpowers to focus on what's important!"
             },
             {
                 category: "Architecture",
-                question: "Explain the attention mechanism like it's a spotlight in a theater.",
+                question: "Explain the attention mechanism.",
                 answer: "🎭 <strong>The Smart Theater Spotlight:</strong><br><br>When an actor says 'I love my mom', the magical spotlight knows to shine brighter on:<br><br>💡 'I' connects to 'love' and 'my'<br>💡 'love' connects strongly to 'mom'<br>💡 'my' connects to 'mom'<br><br>The spotlight helps the AI understand which words are important friends in each sentence!"
             },
             {
                 category: "Architecture",
-                question: "BERT vs GPT: Explain the difference like two different types of smart friends.",
+                question: "BERT vs GPT: Explain the difference",
                 answer: "👦 <strong>BERT = The Great Listener</strong><br>• Reads your WHOLE message before answering<br>• Amazing at understanding what you mean<br>• Best at: 'Is this email happy or sad?'<br><br>👧 <strong>GPT = The Great Storyteller</strong><br>• Reads left-to-right, one word at a time<br>• Amazing at continuing stories<br>• Best at: 'Once upon a time...' → Creates magical tales!"
             },
             {
@@ -1145,6 +1171,21 @@
                 category: "Advanced",
                 question: "What are attention patterns and why do they matter?",
                 answer: "🕸️ <strong>The Mind Map Visualization:</strong><br><br>🧠 <strong>When AI reads 'The cat sat on the mat':</strong><br><br>🕸️ You can actually SEE which words AI connects:<br>• 'cat' connects strongly to 'sat' and 'mat'<br>• 'the' connects to 'cat' and 'mat'<br><br>Like seeing AI's thought process as a beautiful web of connections!"
+            },
+            {
+                category: "Vector Database",
+                question: "What are vector databases and why are they important for LLMs?",
+                answer: "🗄️ <strong>Kid-Friendly Explanation:</strong><br><br>Think of a magical filing cabinet where documents aren't sorted alphabetically, but by how similar their meanings are. All dog photos float near each other, all happy songs group together, and all science articles cluster up. The cabinet magically knows which things are 'similar' and keeps them close!<br><br>🔧 <strong>Technical Answer:</strong><br><br>Vector databases are specialized storage systems optimized for high-dimensional vector data and similarity search operations. They store embeddings (dense numerical representations) generated by ML models and provide efficient approximate nearest neighbor (ANN) search capabilities. Unlike traditional databases that use exact matching and indexing on scalar values, vector databases use distance metrics (cosine, Euclidean, dot product) to find semantically similar items. They're crucial for LLM applications like RAG, semantic search, recommendation systems, and any use case requiring similarity-based retrieval at scale."
+            },
+            {
+                category: "Vector Database",
+                question: "How do vector databases store information differently than regular databases?",
+                answer: "📚 <strong>Kid-Friendly Explanation:</strong><br><br>Regular databases are like libraries organized alphabetically by author name. Vector databases are like magical libraries organized by how similar the stories are - all love stories cluster together, all science books float near each other. It's like organizing by 'vibe' instead of alphabet!<br><br>🔧 <strong>Technical Answer:</strong><br><br>Traditional databases store structured data in tables with exact key-value lookups, using B-tree indexes for range queries and hash indexes for exact matches. Vector databases store high-dimensional floating-point arrays (typically 128-4096 dimensions) representing semantic embeddings. Instead of exact matching, they use specialized indexing algorithms (HNSW, IVF, LSH) optimized for approximate similarity search. Data retrieval is based on vector distance calculations rather than exact field matching, enabling semantic similarity queries that traditional SQL databases cannot efficiently perform."
+            },
+            {
+                category: "Vector Database",
+                question: "What is similarity search and how does it work?",
+                answer: "🔍 <strong>Kid-Friendly Explanation:</strong><br><br>It's like the 'Find My Twin' game! You show a picture of a golden retriever, and the system thinks 'What has similar features?' Then it returns: 1) Other golden retrievers (closest twins), 2) Labradors (close cousins), 3) Other dogs (same family), 4) Cats (furry friends). Like finding your closest relatives in a huge family photo!<br><br>🔧 <strong>Technical Answer:</strong><br><br>Similarity search computes distance metrics between a query vector and stored vectors to find the k most similar items. The process involves: 1) Converting the query into the same embedding space as stored vectors, 2) Computing distance using metrics like cosine similarity (measures angle), Euclidean distance (measures magnitude), or dot product, 3) Using indexing structures to avoid exhaustive search, 4) Returning the top-k results ranked by similarity score. Modern implementations use approximate algorithms (ANN) that trade small accuracy losses for significant speed gains, typically achieving 95%+ recall while being 10-100x faster than brute force search."
             }
             
         ];
@@ -1156,6 +1197,7 @@
             'applications': flashcards.filter(card => card.category === 'Applications'),
             'tools': flashcards.filter(card => card.category === 'Tools'),
             'advanced': flashcards.filter(card => card.category === 'Advanced')
+            'vector': flashcards.filter(card => card.category === 'Vector')
         };
 
         let currentCategory = 'fundamentals';
