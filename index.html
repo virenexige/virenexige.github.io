@@ -474,7 +474,7 @@
                 
                 <div class="stats">
                     <div class="stat-item">
-                        <span class="stat-number">26</span>
+                        <span class="stat-number">85</span>
                         <span class="stat-label">Flashcards</span>
                     </div>
                     <div class="stat-item">
@@ -503,7 +503,7 @@
                             <div class="card-icon">🧠</div>
                             <div>
                                 <div class="card-title">Fundamentals</div>
-                                <div class="card-count">16 cards</div>
+                                <div class="card-count">15 cards</div>
                             </div>
                         </div>
                         <div class="card-description">
@@ -532,7 +532,7 @@
                             <div class="card-icon">🏗️</div>
                             <div>
                                 <div class="card-title">Architecture & Models</div>
-                                <div class="card-count">3 cards</div>
+                                <div class="card-count">15 cards</div>
                             </div>
                         </div>
                         <div class="card-description">
@@ -561,7 +561,7 @@
                             <div class="card-icon">📊</div>
                             <div>
                                 <div class="card-title">Data & Training</div>
-                                <div class="card-count">2 cards</div>
+                                <div class="card-count">15 cards</div>
                             </div>
                         </div>
                         <div class="card-description">
@@ -590,7 +590,7 @@
                             <div class="card-icon">🚀</div>
                             <div>
                                 <div class="card-title">Applications</div>
-                                <div class="card-count">2 cards</div>
+                                <div class="card-count">15 cards</div>
                             </div>
                         </div>
                         <div class="card-description">
@@ -619,7 +619,7 @@
                             <div class="card-icon">🛠️</div>
                             <div>
                                 <div class="card-title">Tools & Libraries</div>
-                                <div class="card-count">2 cards</div>
+                                <div class="card-count">10 cards</div>
                             </div>
                         </div>
                         <div class="card-description">
@@ -648,7 +648,7 @@
                             <div class="card-icon">🎯</div>
                             <div>
                                 <div class="card-title">Advanced Concepts</div>
-                                <div class="card-count">2 cards</div>
+                                <div class="card-count">15 cards</div>
                             </div>
                         </div>
                         <div class="card-description">
@@ -724,7 +724,8 @@
 
     <script>
         const flashcards = [
-            // Fundamentals cards
+
+            // ===== FUNDAMENTALS (15 cards) =====
             {
                 category: "Fundamentals",
                 question: "What does LLM stand for and what are the two main types?",
@@ -744,11 +745,6 @@
                 category: "Fundamentals",
                 question: "How big is 'large' in Large Language Models? Use a brain comparison.",
                 answer: "🧠 <strong>AI Brain Size Competition:</strong><br><br>👶 Small AI: 10 million connections (like a bee brain)<br>🧑 Medium AI: 1 billion connections (like a mouse brain)<br>🤖 <strong>Large LLM: 100+ billion connections</strong> (bigger than human brain!)<br><br>That's why they can remember so much and be so smart!"
-            },
-            {
-                category: "Fundamentals",
-                question: "According to the book, what makes this the 'Language AI' era?",
-                answer: "Recent advances in <strong>deep learning and transformer architectures</strong> have given AI startling new language capabilities, enabling systems to write and understand text better than ever before, creating new features, products, and industries."
             },
             {
                 category: "Fundamentals",
@@ -805,7 +801,8 @@
                 question: "What does it mean that LLMs are 'stochastic'?",
                 answer: "🎲 <strong>The Creative Dice Game:</strong><br><br>🎯 Ask the same question twice, get different answers<br><br>🎲 <strong>Why?</strong> AI doesn't just pick the MOST likely next word - it rolls creative dice:<br>• 60% chance: 'happy'<br>• 30% chance: 'joyful'<br>• 10% chance: 'ecstatic'<br><br>This randomness makes AI creative, not boring!"
             },
-            // Add more cards for each category...
+
+            // ===== ARCHITECTURE (15 cards) =====
             {
                 category: "Architecture",
                 question: "What makes the Transformer architecture special? Use a classroom attention analogy.",
@@ -821,7 +818,68 @@
                 question: "BERT vs GPT: Explain the difference like two different types of smart friends.",
                 answer: "👦 <strong>BERT = The Great Listener</strong><br>• Reads your WHOLE message before answering<br>• Amazing at understanding what you mean<br>• Best at: 'Is this email happy or sad?'<br><br>👧 <strong>GPT = The Great Storyteller</strong><br>• Reads left-to-right, one word at a time<br>• Amazing at continuing stories<br>• Best at: 'Once upon a time...' → Creates magical tales!"
             },
-            // Data & Training
+            {
+                category: "Architecture",
+                question: "What are layers in a neural network? Use a cake analogy.",
+                answer: "🎂 <strong>Baking the Perfect AI Cake:</strong><br><br>👨‍🍳 Each layer adds something special:<br><br>🥄 Layer 1: Mix basic ingredients (simple patterns)<br>🥄 Layer 2: Add flavoring (word meanings)<br>🥄 Layer 3: Add frosting (complex understanding)<br>🥄 Layer 4: Add decorations (final smart answers)<br><br>More layers = smarter AI, like a more delicious cake!"
+            },
+            {
+                category: "Architecture",
+                question: "What is self-attention and why is it revolutionary?",
+                answer: "🕸️ <strong>The Mind-Reading Spider Web:</strong><br><br>🕷️ Imagine each word creates invisible threads to EVERY other word in the sentence<br><br>💪 <strong>Strong threads:</strong> Important connections<br>🧵 <strong>Weak threads:</strong> Less important connections<br><br>This lets AI understand 'he' refers to 'John' even when they're far apart!"
+            },
+            {
+                category: "Architecture",
+                question: "What are attention heads? Use a superhero team analogy.",
+                answer: "🦸‍♂️ <strong>The Avengers of Attention:</strong><br><br>Each attention head is like a different superhero with a special focus:<br><br>🦸‍♂️ Head 1: Focuses on WHO is doing things<br>🦸‍♀️ Head 2: Focuses on WHAT is happening<br>🦸‍♂️ Head 3: Focuses on WHERE things happen<br><br>Together, they understand the complete picture!"
+            },
+            {
+                category: "Architecture",
+                question: "Why is BERT called 'bidirectional'?",
+                answer: "📖 <strong>The Magic Book Reader:</strong><br><br>📚 <strong>Normal reading:</strong> Left → Right, one word at a time<br><br>🧙‍♂️ <strong>BERT's superpower:</strong><br>• Reads forwards AND backwards<br>• Sees the WHOLE sentence before deciding what each word means<br>• Like having X-ray vision to see the ending while reading the beginning!"
+            },
+            {
+                category: "Architecture",
+                question: "What is the encoder-decoder architecture?",
+                answer: "🔄 <strong>The Translator Team:</strong><br><br>🧑‍💼 <strong>Encoder:</strong> The listener who understands your message perfectly<br>🗣️ <strong>Decoder:</strong> The speaker who explains it in a new way<br><br>📝 You say: 'Hello' (English)<br>🧠 Encoder: Understands meaning<br>🗣️ Decoder: Says 'Hola' (Spanish)<br><br>Perfect teamwork for translation!"
+            },
+            {
+                category: "Architecture",
+                question: "What's the difference between encoder-only, decoder-only, and encoder-decoder models?",
+                answer: "🎭 <strong>Three Types of AI Actors:</strong><br><br>👂 <strong>Encoder-only (BERT):</strong> Amazing listener, great at understanding<br>🗣️ <strong>Decoder-only (GPT):</strong> Amazing storyteller, great at creating<br>🔄 <strong>Encoder-Decoder (T5):</strong> Perfect translator, great at transforming<br><br>Each specializes in what they do best!"
+            },
+            {
+                category: "Architecture",
+                question: "What are residual connections in transformers?",
+                answer: "🛤️ <strong>The Safety Highway System:</strong><br><br>🚗 Imagine driving through a mountain with tunnels (layers)<br><br>🛤️ <strong>Residual connections = Emergency highways</strong> that go around each tunnel<br><br>If one tunnel gets blocked (layer has problems), information can still flow through the highway!<br><br>Keeps the AI stable and learning better!"
+            },
+            {
+                category: "Architecture",
+                question: "What is layer normalization?",
+                answer: "⚖️ <strong>The Classroom Balance Keeper:</strong><br><br>👨‍🏫 In a classroom, some students get VERY excited (high numbers) and others get sleepy (low numbers)<br><br>⚖️ <strong>Layer normalization = The teacher who:</strong><br>• Calms down the excited students<br>• Energizes the sleepy students<br>• Keeps everyone balanced and focused<br><br>Helps AI layers work together smoothly!"
+            },
+            {
+                category: "Architecture",
+                question: "What is positional encoding?",
+                answer: "📍 <strong>The Word GPS System:</strong><br><br>🤖 Problem: AI sees words but not their ORDER<br><br>📝 'Dog bites man' vs 'Man bites dog' - VERY different meanings!<br><br>📍 <strong>Positional encoding = GPS coordinates for each word:</strong><br>• Word 1 gets address: [123, 456]<br>• Word 2 gets address: [789, 012]<br><br>Now AI knows the order matters!"
+            },
+            {
+                category: "Architecture",
+                question: "What are the main components of a Transformer block?",
+                answer: "🏗️ <strong>The AI LEGO Block Factory:</strong><br><br>Every Transformer block has the same 4 parts:<br><br>🕸️ <strong>Self-Attention:</strong> The connection maker<br>🧮 <strong>Feed-Forward:</strong> The thinking processor<br>🛤️ <strong>Residual Connections:</strong> The safety highways<br>⚖️ <strong>Layer Norm:</strong> The balance keeper<br><br>Stack many blocks = Build smart AI!"
+            },
+            {
+                category: "Architecture",
+                question: "Why do we use multiple attention heads instead of just one?",
+                answer: "👥 <strong>The Detective Team Approach:</strong><br><br>🕵️‍♂️ <strong>One detective:</strong> Might miss important clues<br><br>👥 <strong>Detective team:</strong> Each looks for different things:<br>• Detective 1: Who did it?<br>• Detective 2: How did they do it?<br>• Detective 3: Why did they do it?<br><br>Multiple attention heads = Better understanding!"
+            },
+            {
+                category: "Architecture",
+                question: "What is the feed-forward network in transformers?",
+                answer: "🧠 <strong>The Deep Thinking Machine:</strong><br><br>After attention finds connections, the feed-forward network is like:<br><br>🤔 <strong>The AI's personal thinking time:</strong><br>• Takes in all the connections<br>• Does some deep math thinking<br>• Transforms the information<br>• Passes it to the next layer<br><br>Like giving AI time to 'process' what it learned!"
+            },
+
+            // ===== DATA & TRAINING (15 cards) =====
             {
                 category: "Data",
                 question: "What is tokenization? Explain it like teaching a robot to read.",
@@ -832,7 +890,73 @@
                 question: "What are embeddings? Use a map analogy that a kid would understand.",
                 answer: "🗺️ <strong>Word Maps in Robot Brains!</strong><br><br>Imagine all words live in a magical city where similar words are neighbors:<br><br>🏠 'Cat' and 'Dog' live on Pet Street<br>🏠 'Happy' and 'Joyful' live on Emotion Avenue<br>🏠 'King' and 'Queen' live in Royal Palace<br><br>Embeddings are like GPS coordinates that tell the robot exactly where each word 'lives'!"
             },
-            // Applications
+            {
+                category: "Data",
+                question: "Why can't we just feed raw text directly to AI models?",
+                answer: "🧠 <strong>The Calculator Brain Problem:</strong><br><br>🤖 Think of AI like a super calculator - it ONLY understands numbers!<br><br>❌ 'The cat sat' = Confusing squiggles to AI<br>✅ [464, 2598, 3332] = Perfect sense!<br><br>It's like translating English to 'Robot Language' so they can understand us!"
+            },
+            {
+                category: "Data",
+                question: "What is the training data that AI learns from? Use a reading marathon analogy.",
+                answer: "📚 <strong>The Ultimate Reading Marathon:</strong><br><br>🏃‍♂️ Imagine reading EVERYTHING on the internet:<br><br>📖 All Wikipedia articles<br>📰 Millions of news stories<br>📚 Countless books<br>💬 Billions of conversations<br><br>🤖 AI 'reads' all this to learn how humans use language - like the biggest book club ever!"
+            },
+            {
+                category: "Data",
+                question: "How do word embeddings capture meaning? Give a playground example.",
+                answer: "🎮 <strong>The Playground Rule:</strong><br><br>Kids who like similar things play together! In AI's word playground:<br><br>⚽ Sports words hang out together: [football, soccer, basketball]<br>🍎 Food words share snacks: [apple, banana, orange]<br>📚 School words study together: [teacher, student, homework]<br><br>The AI measures 'friendship distance' - closer friends = more similar meanings!"
+            },
+            {
+                category: "Data",
+                question: "What are subword tokens and why do we need them?",
+                answer: "✂️ <strong>The Smart Word Scissors:</strong><br><br>🤔 <strong>Problem:</strong> What if AI sees a new word like 'unhappiness'?<br><br>✂️ <strong>Solution:</strong> Cut it into pieces it knows:<br>'un' + 'happy' + 'ness'<br><br>🧠 Now AI thinks: 'un' means 'not', 'happy' means good feeling, 'ness' makes it a thing<br><br>Like solving puzzles with word pieces!"
+            },
+            {
+                category: "Data",
+                question: "What is Byte Pair Encoding (BPE)?",
+                answer: "🧩 <strong>The Word Puzzle Master:</strong><br><br>🔍 BPE looks at text and finds patterns:<br><br>📝 Sees 'ing' appears a lot in 'running', 'jumping', 'swimming'<br>🧩 Makes 'ing' its own special puzzle piece<br>📦 Now stores fewer pieces but can build any word!<br><br>Like finding the most useful LEGO blocks!"
+            },
+            {
+                category: "Data",
+                question: "How does AI learn patterns in language? Use a pattern detective analogy.",
+                answer: "🕵️‍♂️ <strong>The Pattern Detective:</strong><br><br>🔍 AI reads millions of sentences and notices:<br><br>📝 'The ___ is red' → usually 'car', 'apple', 'house'<br>📝 'I feel ___' → usually 'happy', 'sad', 'excited'<br>📝 'Once upon a ___' → almost always 'time'<br><br>🧠 It learns what words typically go together - like solving the world's biggest word puzzle!"
+            },
+            {
+                category: "Data",
+                question: "What is a vocabulary in the context of LLMs?",
+                answer: "📚 <strong>The AI Dictionary:</strong><br><br>📖 Just like you have a vocabulary of words you know, AI has a special dictionary:<br><br>🔢 Each word/token gets a number: 'hello' = 31373<br>📚 <strong>Typical AI vocabulary:</strong> 50,000 to 100,000 words<br>🌍 Includes words from many languages<br><br>AI can only understand words in its dictionary!"
+            },
+            {
+                category: "Data",
+                question: "What happens during the pre-training phase?",
+                answer: "🏫 <strong>AI Elementary School:</strong><br><br>📚 <strong>Curriculum:</strong> Read the entire internet<br>📖 <strong>Assignment:</strong> Predict the next word in millions of sentences<br>⏰ <strong>Duration:</strong> Weeks with super-computers<br>🧠 <strong>Result:</strong> AI learns grammar, facts, reasoning, and creativity<br><br>Like sending AI to the most intensive school ever!"
+            },
+            {
+                category: "Data",
+                question: "Why do embeddings have so many dimensions (like 768 or 1024)?",
+                answer: "🌈 <strong>The Color Spectrum Analogy:</strong><br><br>🎨 <strong>3 colors (RGB):</strong> Can make any color on screen<br>🌈 <strong>768 dimensions:</strong> Can capture any meaning in language!<br><br>Each dimension captures different aspects:<br>• Dimension 1: How 'alive' is this word?<br>• Dimension 2: How 'positive' is this word?<br>• ...768 different meaning aspects!"
+            },
+            {
+                category: "Data",
+                question: "What is the difference between tokens and words?",
+                answer: "✂️ <strong>The Smart Cutting System:</strong><br><br>📝 <strong>Words:</strong> How humans naturally separate text<br>🤖 <strong>Tokens:</strong> How AI actually reads text<br><br>🔄 <strong>Examples:</strong><br>'don't' → 'don', 't' (2 tokens)<br>'ChatGPT' → 'Chat', 'GPT' (2 tokens)<br>'incredible' → 'incred', 'ible' (2 tokens)<br><br>AI reads in smaller, smarter pieces!"
+            },
+            {
+                category: "Data",
+                question: "How do AI models handle different languages?",
+                answer: "🌍 <strong>The Universal Language Neighborhood:</strong><br><br>🏘️ In AI's embedding city, similar words from ALL languages live near each other:<br><br>🏠 'Dog' (English), 'Perro' (Spanish), 'Chien' (French) live on the same street<br>🏠 'Love' (English), 'Amor' (Spanish), 'Amour' (French) are neighbors<br><br>AI learns that concepts are universal, even if words are different!"
+            },
+            {
+                category: "Data",
+                question: "What is data preprocessing for LLMs?",
+                answer: "🧹 <strong>The Data Cleaning Service:</strong><br><br>🗂️ Before AI can learn, data needs cleaning:<br><br>🧹 Remove weird characters and spam<br>📏 Split into manageable chunks<br>🏷️ Add special markers for different text types<br>🔍 Filter out inappropriate content<br><br>Like preparing ingredients before cooking a meal!"
+            },
+            {
+                category: "Data",
+                question: "What are special tokens like [CLS], [SEP], and [PAD]?",
+                answer: "🏷️ <strong>The Special Label System:</strong><br><br>📦 AI needs special labels to understand text structure:<br><br>🏁 [CLS] = 'Start here!' (beginning of text)<br>✂️ [SEP] = 'New section!' (separator)<br>📄 [PAD] = 'Empty space' (padding for equal lengths)<br>❓ [UNK] = 'Unknown word!'<br><br>Like punctuation marks for robots!"
+            },
+
+            // ===== APPLICATIONS (15 cards) =====
             {
                 category: "Applications",
                 question: "What is text classification? Explain like sorting your toy box.",
@@ -843,7 +967,58 @@
                 question: "What's the difference between keyword search and semantic search? Use a library analogy.",
                 answer: "📚 <strong>Two Types of Librarians:</strong><br><br>🤖 <strong>Old Librarian (Keyword):</strong><br>You: 'Books about fast cars'<br>Librarian: Only finds books with EXACTLY 'fast' and 'cars'<br><br>🧙‍♀️ <strong>Smart Librarian (Semantic):</strong><br>You: 'Books about fast cars'<br>Librarian: Finds books about 'racing', 'speed', 'automobiles', 'sports cars' - understands what you REALLY want!"
             },
-            // Tools
+            {
+                category: "Applications",
+                question: "How does sentiment analysis work? Use emoji examples.",
+                answer: "😊😢😡 <strong>The Emotion Detective:</strong><br><br>🕵️ AI reads text and guesses the emotion:<br><br>📝 'I love this pizza!' → 😊 HAPPY (words: love, pizza)<br>📝 'This movie is terrible' → 😢 SAD (words: terrible)<br>📝 'I'm so excited for vacation!' → 😊 HAPPY (words: excited, vacation)<br><br>Like having a robot friend who's really good at reading feelings!"
+            },
+            {
+                category: "Applications",
+                question: "What is named entity recognition (NER)?",
+                answer: "🏷️ <strong>The Smart Label Maker:</strong><br><br>📝 AI reads: 'John visited Paris on Monday'<br><br>🏷️ <strong>AI labels everything:</strong><br>👤 'John' = PERSON<br>🌍 'Paris' = PLACE<br>📅 'Monday' = TIME<br><br>Like a super-smart highlighter that knows what everything is!"
+            },
+            {
+                category: "Applications",
+                question: "How does machine translation work in modern AI?",
+                answer: "🔄 <strong>The Universal Translator:</strong><br><br>🌍 <strong>Step 1:</strong> AI reads English and understands the MEANING<br>🧠 <strong>Step 2:</strong> Converts meaning to 'universal concept language'<br>🗣️ <strong>Step 3:</strong> Expresses that meaning in Spanish<br><br>Like having a friend who truly understands what you mean and can explain it in any language!"
+            },
+            {
+                category: "Applications",
+                question: "What is text summarization and how does AI do it?",
+                answer: "📰 <strong>The Smart News Reporter:</strong><br><br>📚 You give AI a 10-page article<br><br>🧠 <strong>AI thinks:</strong> 'What are the most important parts?'<br>✂️ Picks out key points<br>📝 Rewrites them in simple, short sentences<br><br>Like having a friend read a long book and tell you the exciting parts!"
+            },
+            {
+                category: "Applications",
+                question: "How can AI help with writing? Use a writing assistant analogy.",
+                answer: "✍️ <strong>Your Super Writing Buddy:</strong><br><br>📝 <strong>AI can help you:</strong><br>💡 Brainstorm ideas when you're stuck<br>📖 Write rough drafts to get started<br>🔍 Check grammar and spelling<br>🎨 Make writing more interesting<br>📚 Summarize long articles<br><br>Like having the world's best writing tutor who never gets tired!"
+            },
+            {
+                category: "Applications",
+                question: "What is question answering and how does it work?",
+                answer: "🎓 <strong>The Know-It-All Friend:</strong><br><br>❓ You ask: 'What's the capital of France?'<br><br>🧠 <strong>AI process:</strong><br>1. 🔍 Searches through everything it learned<br>2. 🎯 Finds relevant information about France<br>3. 📝 Formulates a clear answer: 'Paris'<br><br>Like having a friend who memorized every encyclopedia!"
+            },
+            {
+                category: "Applications",
+                question: "What is text generation and what makes it creative?",
+                answer: "🎨 <strong>The Creative Story Machine:</strong><br><br>✨ <strong>AI doesn't just copy - it creates by:</strong><br><br>🎲 Adding controlled randomness (creative dice)<br>🧠 Combining patterns from millions of stories<br>🎯 Following your specific instructions<br>🌈 Making unique combinations<br><br>Like a chef who knows every recipe and creates new dishes!"
+            },
+            {
+                category: "Applications",
+                question: "How does AI detect fake news or misinformation?",
+                answer: "🕵️‍♂️ <strong>The Truth Detective:</strong><br><br>🔍 <strong>AI looks for clues:</strong><br>📊 Does this match known facts?<br>📝 Is the writing style suspicious?<br>🔗 Are the sources reliable?<br>📈 How is this spreading online?<br><br>Like having a super-smart fact-checker who never gets tired!"
+            },
+            {
+                category: "Applications",
+                question: "What is conversational AI and how is it different from chatbots?",
+                answer: "💬 <strong>Robot Friend Evolution:</strong><br><br>🤖 <strong>Old chatbots:</strong> Like talking to a vending machine - limited options<br><br>🧠 <strong>Conversational AI:</strong> Like talking to a smart friend who:<br>• Remembers what you said earlier<br>• Understands context and nuance<br>• Can discuss any topic naturally<br><br>Much more like real conversation!"
+            },
+            {
+                category: "Applications",
+                question: "How does AI help with code generation?",
+                answer: "👨‍💻 <strong>The Coding Assistant:</strong><br><br>💭 You describe what you want: 'Make a function that sorts numbers'<br><br>🧠 <strong>AI thinks:</strong> 'I've seen millions of code examples...'<br>⌨️ Writes the code for you<br>🔍 Can even explain how it works<br><br>Like having a programming tutor who knows every coding language!"
+            },
+
+            // ===== TOOLS & LIBRARIES (10 cards) =====
             {
                 category: "Tools",
                 question: "What is Hugging Face Transformers library? Use a toy store analogy.",
@@ -854,7 +1029,48 @@
                 question: "What is LangChain? Explain like building with LEGO blocks.",
                 answer: "🧱 <strong>AI LEGO Building Kit:</strong><br><br>Instead of building one big AI robot, you connect smaller pieces:<br><br>🤖 Block 1: 'Question Answerer'<br>🔍 Block 2: 'Information Finder'<br>💾 Block 3: 'Memory Keeper'<br>📝 Block 4: 'Response Writer'<br><br>LangChain helps you snap these blocks together to build custom AI helpers!"
             },
-            // Advanced
+            {
+                category: "Tools",
+                question: "What is an API in AI? Use a restaurant ordering analogy.",
+                answer: "🍽️ <strong>The Smart Restaurant:</strong><br><br>🤖 <strong>You (customer):</strong> 'I want the translation special'<br>📝 <strong>Waiter (API):</strong> Takes your order to the kitchen<br>👨‍🍳 <strong>Chef (AI model):</strong> Prepares your translation<br>🍽️ <strong>Waiter:</strong> Brings back perfect translation<br><br>API = The helpful waiter between you and the AI chef!"
+            },
+            {
+                category: "Tools",
+                question: "What is Sentence-Transformers used for?",
+                answer: "📏 <strong>The Meaning Ruler:</strong><br><br>🔍 Takes any sentence and turns it into a 'meaning fingerprint'<br><br>📝 'I love dogs' → [0.2, 0.8, 0.1, 0.9...]<br>📝 'I adore puppies' → [0.3, 0.7, 0.2, 0.8...]<br><br>Then it can measure: 'How similar are these sentences?' - like a ruler for measuring meaning instead of length!"
+            },
+            {
+                category: "Tools",
+                question: "What is OpenAI's API and how do developers use it?",
+                answer: "🔌 <strong>The Magic Power Outlet:</strong><br><br>🏠 Instead of building your own power plant, you just plug into the wall!<br><br>⚡ <strong>OpenAI API = Power outlet for AI:</strong><br>• Plug your app into GPT's intelligence<br>• Pay for what you use<br>• No need to build your own AI<br><br>Like renting superpowers for your apps!"
+            },
+            {
+                category: "Tools",
+                question: "What is PyTorch and why is it important for AI?",
+                answer: "🔧 <strong>The AI Workshop Toolbox:</strong><br><br>🛠️ <strong>PyTorch = The ultimate toolkit for building AI:</strong><br><br>⚒️ Has all the tools you need<br>📚 Easy to learn and use<br>🔬 Researchers love it for experiments<br>🏭 Companies use it for real products<br><br>Like having the perfect workshop for building robots!"
+            },
+            {
+                category: "Tools",
+                question: "What are Jupyter Notebooks in AI development?",
+                answer: "📓 <strong>The Interactive Science Lab Book:</strong><br><br>🔬 Scientists need to:<br>• Try experiments step by step<br>• See results immediately<br>• Write notes about what happened<br>• Share with other scientists<br><br>📓 <strong>Jupyter = Digital lab notebook</strong> where AI scientists build and test their ideas!"
+            },
+            {
+                category: "Tools",
+                question: "What is GitHub Copilot and how does it help programmers?",
+                answer: "👨‍✈️ <strong>The Coding Co-Pilot:</strong><br><br>✈️ <strong>Just like a pilot has a co-pilot:</strong><br><br>👨‍💻 You start typing code...<br>🤖 Copilot suggests what comes next<br>✅ You accept good suggestions<br>❌ Ignore bad ones<br><br>Like having a smart coding buddy who helps you write faster!"
+            },
+            {
+                category: "Tools",
+                question: "What is Weights & Biases (wandb) for?",
+                answer: "📊 <strong>The AI Training Dashboard:</strong><br><br>🏃‍♂️ <strong>Training AI is like marathon running:</strong><br><br>⌚ How fast am I going?<br>💓 How's my heart rate?<br>📈 Am I improving?<br>🎯 Will I reach my goal?<br><br>📊 <strong>W&B = Fitness tracker for AI training!</strong>"
+            },
+            {
+                category: "Tools",
+                question: "What is Docker and why do AI developers use it?",
+                answer: "📦 <strong>The Magic Moving Box:</strong><br><br>🏠 <strong>Problem:</strong> Your AI works on your computer but not on others<br><br>📦 <strong>Docker = Special moving box that:</strong><br>• Packs your AI with EVERYTHING it needs<br>• Works the same everywhere<br>• Easy to ship to any computer<br><br>Like a magic box that makes your AI portable!"
+            },
+
+            // ===== ADVANCED CONCEPTS (15 cards) =====
             {
                 category: "Advanced",
                 question: "What is RAG (Retrieval-Augmented Generation)? Explain like a student with superpowers.",
@@ -864,7 +1080,73 @@
                 category: "Advanced",
                 question: "What are multimodal models? Use a superhero with multiple powers analogy.",
                 answer: "🦸‍♂️ <strong>The Multi-Power Superhero:</strong><br><br>🤖 <strong>Normal AI:</strong> Only has 'reading text' superpower<br><br>🌟 <strong>Multimodal AI (like CLIP):</strong><br>👁️ Can 'see' pictures<br>👂 Can 'hear' sounds<br>📖 Can 'read' text<br>🎥 Can 'watch' videos<br><br>Like having a robot friend who can experience the world like humans do!"
+            },
+            {
+                category: "Advanced",
+                question: "What is fine-tuning? Use a pet training analogy.",
+                answer: "🐕 <strong>Training Your Smart Pet:</strong><br><br>📚 <strong>Pre-training:</strong> Your dog learned basic commands (sit, stay, come)<br><br>🎯 <strong>Fine-tuning:</strong> Now you teach special tricks:<br>• 🏥 Medical dog: Recognize diseases<br>• 🎭 Actor dog: Perform in movies<br>• 🧑‍🏫 Teacher dog: Help kids learn<br><br>Same smart dog, but specialized for specific jobs!"
+            },
+            {
+                category: "Advanced",
+                question: "What is contrastive learning? Use a 'spot the difference' game analogy.",
+                answer: "🎮 <strong>The 'Spot the Difference' Training Game:</strong><br><br>🤖 AI learns by playing comparison games:<br><br>👍 <strong>'These are similar!'</strong><br>🐱 'Cat' and 'Kitten' → Pull closer together<br><br>👎 <strong>'These are different!'</strong><br>🐱 'Cat' and 🚗 'Car' → Push far apart<br><br>Like training AI to be really good at the 'which things belong together' game!"
+            },
+            {
+                category: "Advanced",
+                question: "What is few-shot learning? Use a quick study analogy.",
+                answer: "⚡ <strong>The Speed Learning Superpower:</strong><br><br>👨‍🎓 <strong>Normal learning:</strong> Study 1000 examples to learn something new<br><br>🚀 <strong>Few-shot learning:</strong> AI learns from just 2-3 examples!<br><br>📝 Show AI: 'Dog → Woof, Cat → Meow'<br>❓ Ask: 'What sound does cow make?'<br>🤖 AI: 'Moo!' (learned the pattern instantly!)<br><br>Like having a genius friend who 'gets it' super fast!"
+            },
+            {
+                category: "Advanced",
+                question: "What is zero-shot learning? Use a guessing game analogy.",
+                answer: "🔮 <strong>The Amazing Mind Reader:</strong><br><br>🎯 You ask AI to do something it was NEVER specifically taught:<br><br>❓ 'Translate this to French' (never learned French translation)<br>🤖 But AI thinks: 'I know French words, I know English words, I can figure this out!'<br><br>Like a super-smart friend who can solve puzzles they've never seen before!"
+            },
+            {
+                category: "Advanced",
+                question: "What is prompt engineering? Use a magic spell analogy.",
+                answer: "🧙‍♂️ <strong>Casting the Perfect Spell:</strong><br><br>✨ The way you ask AI questions is like casting spells:<br><br>❌ <strong>Bad spell:</strong> 'Write something'<br>✅ <strong>Good spell:</strong> 'Write a funny story about a dragon who's afraid of mice, in 100 words'<br><br>🎯 Better instructions = Better magic results!"
+            },
+            {
+                category: "Advanced",
+                question: "What is in-context learning? Explain like teaching by showing examples.",
+                answer: "👨‍🏫 <strong>Learning by Example (No Homework!):</strong><br><br>Instead of studying for weeks, you just show the AI examples:<br><br>📝 <strong>You:</strong> 'Happy: 😊, Sad: 😢, Angry: 😡'<br>📝 <strong>You:</strong> 'Now what emoji for Excited?'<br>🤖 <strong>AI:</strong> '🎉!'<br><br>The AI learns new tricks just from seeing a few examples - like a super-fast learner!"
+            },
+            {
+                category: "Advanced",
+                question: "What is transfer learning in AI?",
+                answer: "🚴‍♂️ <strong>The Skill Transfer Champion:</strong><br><br>🚴‍♂️ <strong>You learned to ride a bike:</strong> Balance, steering, pedaling<br>🏍️ <strong>Now learning motorcycle:</strong> Use the SAME balance and steering skills!<br><br>🤖 <strong>Transfer learning:</strong> AI trained on general text can quickly learn specific tasks like medical diagnosis<br><br>Previous learning makes new learning faster!"
+            },
+            {
+                category: "Advanced",
+                question: "What are vector databases and why are they important for LLMs?",
+                answer: "🗄️ <strong>The Magical Filing Cabinet:</strong><br><br>📁 <strong>Normal filing:</strong> Papers sorted by letter (A, B, C...)<br><br>🔮 <strong>Vector filing:</strong> Papers sorted by 'similarity magic'<br>• All dog photos float near each other<br>• All happy songs group together<br>• All science articles cluster up<br><br>The cabinet magically knows which things are 'similar' and keeps them close!"
+            },
+            {
+                category: "Advanced",
+                question: "How does CLIP work? Explain like a matching game.",
+                answer: "🔗 <strong>The Picture-Word Matching Game:</strong><br><br>🤖 CLIP learned by looking at millions of pictures with captions:<br><br>🐕 Picture of dog + Text 'cute puppy'<br>🌅 Picture of sunset + Text 'beautiful evening'<br><br>Now it can:<br>📸 Look at any picture and describe it<br>📝 Read any description and find matching pictures<br><br>Like a robot that's amazing at 'memory matching' games!"
+            },
+            {
+                category: "Advanced",
+                question: "What is model distillation?",
+                answer: "👨‍🏫 <strong>The Teaching Master to Student:</strong><br><br>👨‍🏫 <strong>Big teacher model:</strong> Knows everything but is slow and expensive<br>👨‍🎓 <strong>Small student model:</strong> Learns by watching the teacher<br><br>🎯 <strong>Goal:</strong> Student becomes almost as smart as teacher but much faster and cheaper!<br><br>Like learning from the best teacher to become quick and efficient!"
+            },
+            {
+                category: "Advanced",
+                question: "What is quantization in AI models?",
+                answer: "🎒 <strong>Packing for the Big Trip:</strong><br><br>👕 <strong>Before:</strong> AI model = Huge suitcase with everything<br><br>🎒 <strong>Quantization = Smart Packing:</strong><br>• Fold clothes smaller (compress numbers)<br>• Leave non-essentials home (remove less important parts)<br>• Still have everything you need, but fits in backpack!<br><br>Smaller AI that runs faster on your phone!"
+            },
+            {
+                category: "Advanced",
+                question: "What is reinforcement learning from human feedback (RLHF)?",
+                answer: "🎭 <strong>The AI Acting Coach:</strong><br><br>🤖 <strong>AI performs:</strong> Writes a story<br>👨‍🏫 <strong>Human coach:</strong> 'Good job on creativity, but be more helpful'<br>🔄 <strong>AI tries again:</strong> Writes a more helpful story<br>👍 <strong>Coach:</strong> 'Much better!'<br><br>AI learns to be more helpful by getting feedback from human coaches!"
+            },
+            {
+                category: "Advanced",
+                question: "What are attention patterns and why do they matter?",
+                answer: "🕸️ <strong>The Mind Map Visualization:</strong><br><br>🧠 <strong>When AI reads 'The cat sat on the mat':</strong><br><br>🕸️ You can actually SEE which words AI connects:<br>• 'cat' connects strongly to 'sat' and 'mat'<br>• 'the' connects to 'cat' and 'mat'<br><br>Like seeing AI's thought process as a beautiful web of connections!"
             }
+            
         ];
 
         const categoryData = {
